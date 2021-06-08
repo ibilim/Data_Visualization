@@ -1,11 +1,6 @@
 
 
-# # Assignment 2
-# 
-# Before working on this assignment please read these instructions fully. In the submission area, you will notice that you can click the link to **Preview the Grading** for each step of the assignment. This is the criteria that will be used for peer grading. Please familiarize yourself with the criteria before beginning the assignment.
-# 
-# An NOAA dataset has been stored in the file `data/C2A2_data/BinnedCsvs_d400/fb441e62df2d58994928907a91895ec62c2c42e6cd075c2700843b89.csv`. This is the dataset to use for this assignment. Note: The data for this assignment comes from a subset of The National Centers for Environmental Information (NCEI) [Daily Global Historical Climatology Network](https://www1.ncdc.noaa.gov/pub/data/ghcn/daily/readme.txt) (GHCN-Daily). The GHCN-Daily is comprised of daily climate records from thousands of land surface stations across the globe.
-# 
+# # Visualising Max Min Temperature values between 2005 and 2016
 # Each row in the assignment datafile corresponds to a single observation.
 # 
 # The following variables are provided to you:
@@ -65,7 +60,7 @@ df1['Data_Value']=df1['Data_Value']/10
 # In[3]:
 
 import numpy as np
-tmax=df1[df1['Element']=='TMAX'][['Date','Data_Value']]
+tmax=df1[df1['Element']=='TMAX'][['Date','Data_Value']]   # 
 tmax=tmax[tmax['Date']<'2015'].sort_values(['Date']).drop_duplicates(keep='first').reset_index()
 date_list_max=[]
 temp_temporary=[]
@@ -223,7 +218,7 @@ plt.title('Record high and record low temperatures by day of the year over the p
 plt.legend(['Record Low Temperature ','Record High Temperature','Record Low broken law in 2015 '],frameon=False)
 plt.fill_between(np.array(date_list_min),temp_list_min,temp_list_max,facecolor='grey',alpha=0.25)
 plt.xticks(['2005','2006','2007','2008','2009','2010','2011','2012','2013','2014','2015','2016'])
-plt.savefig('Assignment2.jpg')
+plt.savefig('Temp_min_max.jpg')
 
 
 # In[ ]:
